@@ -18,6 +18,23 @@ print("The valid characters/numbers/words is " + ", ".join(["* (for multiplicati
 
 # Initialize function checkPlease for check if a string/array/tuple... contains only characters/words/numbers... of a Array/String/tuple...
 def checkPlease(contentToCheck, toCheckChars = None, toCheckWords = None):
+  def fromToTidyFunction(entrancePoint, finalPoint):
+    if entrancePoint < 
+    fromToTidyReturn = [entrancePoint]
+    while True:
+      fromToTidyReturn += 
+  def CheckIfNoReservedPlaceHere(TheReservedPlace, allReservedPlaces):
+    allReservedPlacesA = []
+    allReservedPlacesB = []
+    alternateNum = False
+    while m in allReservedPlaces:
+      if alternateNum == False:
+        allReservedPlacesA += [m]
+        alternateNum == True
+      else:
+        allReservedPlacesB += [m - 1]
+        alternateNum = False
+    allReservedPlacesD = []
   if toCheckChars == None and toCheckWords == None:
     return None
   else:
@@ -45,7 +62,7 @@ def checkPlease(contentToCheck, toCheckChars = None, toCheckWords = None):
       reservedplaces = ()
       while i in contentToCheck:
         if z[0] == i:
-          if i[localistaionContent:len(toCheckWords)+1] == toCheckWords and :
+          if i[localistaionContent:len(toCheckWords)+1] == toCheckWords and CheckIfNoReservedPlaceHere():
             reservedplaces += (localistaionContent, len(toCheckWords)+1)
         localistaionContent += 1
   if isOkay == len(contentToCheck):
