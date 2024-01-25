@@ -82,18 +82,18 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
       print("toCheckWordsB:", toCheckWordsB)
       localistaionContent = 0
       for i in contentToCheck:
-        print("Ok1")
         if z[0] == i and len(z) <= len(contentToCheck[localistaionContent:]):
-          print("Ok2")
           if contentToCheck[localistaionContent:localistaionContent+len(z)] == z and CheckIfNoReservedPlaceHere((localistaionContent, localistaionContent+len(z)+1), reservedplaces):
-            print("Ok3")
             reservedplaces += [(localistaionContent, localistaionContent+len(z)+1)]
             isOkay += len(z)
         localistaionContent += 1
   if isOkay == len(contentToCheck):
+    print("haha1")
     if CheckOperationSyntax(contentToCheck):
+      print("haha2")
       return True
   else:
+    print("haha3")
     return False
 # Entrance for operation...
 entrance = input()
