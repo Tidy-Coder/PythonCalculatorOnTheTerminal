@@ -7,7 +7,7 @@ print("Program start...")
 
 # Establish an array that contains the numbers from 0 to 9, in the form of a string.
 stringNumberArray = []
-while h in range(0, 10):
+for h in range(0, 10):
   stringNumberArray += str(h)
 
 # Initialize an array that contains all valid characters/numbers/words.
@@ -23,7 +23,7 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
       return False
     else:
       theLast = "number"
-    while bk in theContentToCheck[1:]:
+    for bk in theContentToCheck[1:]:
       if theLast == "operator" and bk in allValid[-7:]:
         return False
       elif bk in allValid[-7:]:
@@ -35,7 +35,7 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
     allReservedPlacesA = []
     allReservedPlacesB = []
     alternateNum = False
-    while m in allReservedPlaces:
+    for m in allReservedPlaces:
       if alternateNum == False:
         allReservedPlacesA += [m]
         alternateNum == True
@@ -43,9 +43,9 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
         allReservedPlacesB += [m - 1]
         alternateNum = False
     allReservedPlacesD = []
-    while v in range(0, len(allReservedPlacesA)+1):
+    for v in range(0, len(allReservedPlacesA)+1):
       allReservedPlacesD += range(allReservedPlacesA[v], allReservedPlacesB[v]+1)
-    while n in range(theReservedPlace[0], theReservedPlace[1]+1):
+    for n in range(theReservedPlace[0], theReservedPlace[1]+1):
       if n in allReservedPlacesD:
         return False
     return True
@@ -54,8 +54,8 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
   else:
     isOkay = 0
   if toCheckChars != None:
-    while p in contentToCheck:
-      while d in toCheckChars:
+    for p in contentToCheck:
+      for d in toCheckChars:
         if p == d:
           isOkay += 1
           break
@@ -64,17 +64,17 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
       toCheckWordsB = list(toCheckWords)
     else:
       toCheckWordsB = toCheckWords
-    while y in toCheckWordsB:
+    for y in toCheckWordsB:
       repeat = 0
-      while iy in toCheckWordsB:
+      for iy in toCheckWordsB:
         if iy == y:
           repeat += 1
           if repeat > 1:
             iy = []
-    while z in toCheckWords:
+    for z in toCheckWords:
       localistaionContent = 0
       reservedplaces = ()
-      while i in contentToCheck:
+      for i in contentToCheck:
         if z[0] == i:
           if i[localistaionContent:len(toCheckWords)+1] == toCheckWords and CheckIfNoReservedPlaceHere((localistaionContent, len(toCheckWords)+1), reservedplaces):
             reservedplaces += (localistaionContent, len(toCheckWords)+1)
