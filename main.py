@@ -1,6 +1,9 @@
 # A simple calculator on the terminal...
 # I'm getting started to code...
 # Thank you for download or utilisation in program or watch...
+print("Thank you for download or utilisation in program or watch...")
+
+print("Program made by TidyCodeur, if you want to know TidyCodeur's projects, search on github TidyCodeur...")
 
 # Inform to program start
 print("Program start...")
