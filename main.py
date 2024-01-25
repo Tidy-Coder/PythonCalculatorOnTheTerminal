@@ -76,7 +76,7 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
       localistaionContent = 0
       for i in contentToCheck:
         if z[0] == i:
-          if contentToCheck[localistaionContent:len(toCheckWords)+1] == toCheckWords and CheckIfNoReservedPlaceHere((localistaionContent, len(toCheckWords)+1), reservedplaces):
+          if contentToCheck[localistaionContent:len(toCheckWords)+1] == z and CheckIfNoReservedPlaceHere((localistaionContent, len(toCheckWords)+1), reservedplaces):
             reservedplaces += (localistaionContent, len(toCheckWords)+1)
             isOkay += len(toCheckWords)
             print("haha")
