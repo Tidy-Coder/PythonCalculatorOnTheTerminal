@@ -37,17 +37,27 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
         return True
     return False
   def CheckOperationSyntax(theContentToCheck):
-    if EachStartBy(allValid[-7:]):
+    if EachStartBy(allValid[-7:], theContentToCheck):
       return False
     else:
       theLast = "number"
-    for bk in theContentToCheck[1:]:
-      if theLast == "operator" and bk in allValid[-7:]:
+    for elementsZI in allValid[-7:]:
+      if StartBy(elementsZI, theContentToCheck):
+        theContentToCheckB = theContentToCheck[len(elementsZI)-1:]
+        break
+    localisationLetterZT = 0
+    while localisationLetterZT < len(theContentToCheckB):
+      if theLast == "operator" and EachStartBy(allValid[-7:], theContentToCheckB[localisationLetterZT:]):
         return False
-      elif bk in allValid[-7:] or :
+      elif EachStartBy(allValid[-7:], theContentToCheckB[localisationLetterZT:]):
+        for elementsTB in allValid[-7:]:
+          if StartBy(elementsTB, theContentToCheckB[localisationLetterZT:]):
+            localisationLetterZT += len(elementsTB)-1
+            break
         theLast = "operator"
-      elif bk in stringNumberArray:
+      elif theContentToCheckB[localisationLetterZT] in stringNumberArray:
         theLast = "number"
+      localisationLetterZT += 1
     return True
   def CheckIfNoReservedPlaceHere(theReservedPlace, allReservedPlaces):
     print("all reserved places: ", allReservedPlaces)
