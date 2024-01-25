@@ -114,6 +114,7 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
         localistaionContent += 1
   if isOkay == len(contentToCheck):
     print("haha1")
+    print(CheckOperationSyntax(contentToCheck))
     if CheckOperationSyntax(contentToCheck):
       print("haha2")
       return True
