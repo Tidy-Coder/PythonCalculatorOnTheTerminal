@@ -94,4 +94,4 @@ while entrance == "" or not checkCharsAndSyntax(entrance, allValid[:-1], allVali
   entrance = input()
 
 # After Check, doing the operation with eval function...
-print(entrance + " = " + str(eval(entrance)))
+print(entrance + " = " + str(eval(entrance.replace("modulo", "%"))))
