@@ -121,3 +121,4 @@ while entrance.replace(" ", "") == "" or not checkCharsAndSyntax(entrance.replac
 
 # After Check, doing the operation with eval function...
 print(entrance + " = " + str(eval(entrance.replace("modulo", "%").replace(" ", ""))))
+
