@@ -79,6 +79,7 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
             iy = []
     reservedplaces = []
     for z in toCheckWordsB:
+      print("toCheckWordsB:", toCheckWordsB)
       localistaionContent = 0
       for i in contentToCheck:
         if z[0] == i and len(z) <= len(contentToCheck[localistaionContent:]):
