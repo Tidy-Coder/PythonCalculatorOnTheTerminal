@@ -35,25 +35,28 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
         theLast = "number"
     return True
   def CheckIfNoReservedPlaceHere(theReservedPlace, allReservedPlaces):
-    allReservedPlacesA = []
-    allReservedPlacesB = []
-    alternateNum = False
-    for m in allReservedPlaces:
-      if alternateNum == False:
-        allReservedPlacesA += [m]
-        alternateNum == True
-      else:
-        allReservedPlacesB += [m - 1]
-        alternateNum = False
-    print(allReservedPlacesA)
-    print(allReservedPlacesB)
-    allReservedPlacesD = []
-    for v in range(0, len(allReservedPlacesA)):
-      allReservedPlacesD += range(allReservedPlacesA[v], allReservedPlacesB[v]+1)
-    for n in range(theReservedPlace[0], theReservedPlace[1]+1):
-      if n in allReservedPlacesD:
-        return False
-    return True
+    if allReservedPlaces != []:
+      allReservedPlacesA = []
+      allReservedPlacesB = []
+      alternateNum = False
+      for m in allReservedPlaces:
+        if alternateNum == False:
+          allReservedPlacesA += [m]
+          alternateNum == True
+        else:
+          allReservedPlacesB += [m - 1]
+          alternateNum = False
+      print(allReservedPlacesA)
+      print(allReservedPlacesB)
+      allReservedPlacesD = []
+      for v in range(0, len(allReservedPlacesA)):
+        allReservedPlacesD += range(allReservedPlacesA[v], allReservedPlacesB[v]+1)
+      for n in range(theReservedPlace[0], theReservedPlace[1]+1):
+        if n in allReservedPlacesD:
+          return False
+      return True
+    else:
+      return True
   if toCheckChars == None and toCheckWords == None:
     return None
   else:
