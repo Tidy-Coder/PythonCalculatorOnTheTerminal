@@ -21,15 +21,30 @@ print("The valid characters/numbers/words is " + ", ".join(["* (for multiplicati
 
 # Initialize function checkChars for check if a string/array/tuple... contains only characters/words/numbers... of a Array/String/tuple...
 def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None):
+  def StartBy(wordOrLetter, theContentToCheckZ):
+    if len(wordOrLetter) == 1:
+      if theContentToCheckZ[0] == wordOrLetter:
+        return True
+    else:
+      if len(wordOrLetter) <= theContentToCheckZ:
+        if theContentToCheckZ[0:len(wordOrLetter)+1] == wordOrLetter:
+          return True
+      else:
+        return False
+  def EachStartBy(theArrayZ, theContentToCheckZD):
+    for ZD in theArrayZ:
+      if StartBy(ZD, theContentToCheckZD):
+        return True
+    return False
   def CheckOperationSyntax(theContentToCheck):
-    if theContentToCheck[0] in allValid[-7:]:
+    if EachStartBy(allValid[-7:]):
       return False
     else:
       theLast = "number"
     for bk in theContentToCheck[1:]:
       if theLast == "operator" and bk in allValid[-7:]:
         return False
-      elif bk in allValid[-7:]:
+      elif bk in allValid[-7:] or :
         theLast = "operator"
       elif bk in stringNumberArray:
         theLast = "number"
@@ -92,6 +107,8 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
     if CheckOperationSyntax(contentToCheck):
       print("haha2")
       return True
+    else:
+      return False
   else:
     print("haha3")
     return False
