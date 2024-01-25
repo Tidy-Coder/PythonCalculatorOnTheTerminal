@@ -36,7 +36,9 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
     return True
   def CheckIfNoReservedPlaceHere(theReservedPlace, allReservedPlaces):
     print("all reserved places: ", allReservedPlaces)
-    if allReservedPlaces != []:
+    if allReservedPlaces == []:
+      return True
+    else:
       allReservedPlacesA = []
       allReservedPlacesB = []
       alternateNum = False
@@ -55,8 +57,6 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
       for n in range(theReservedPlace[0], theReservedPlace[1]+1):
         if n in allReservedPlacesD:
           return False
-      return True
-    else:
       return True
   if toCheckChars == None and toCheckWords == None:
     return None
