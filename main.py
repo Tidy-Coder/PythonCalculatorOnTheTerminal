@@ -35,6 +35,7 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
         theLast = "number"
     return True
   def CheckIfNoReservedPlaceHere(theReservedPlace, allReservedPlaces):
+    print(allReservedPlaces)
     if allReservedPlaces != []:
       allReservedPlacesA = []
       allReservedPlacesB = []
