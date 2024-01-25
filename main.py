@@ -46,7 +46,7 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
         allReservedPlacesB += [m - 1]
         alternateNum = False
     allReservedPlacesD = []
-    for v in range(0, len(allReservedPlacesA)+1):
+    for v in range(0, len(allReservedPlacesA)):
       allReservedPlacesD += range(allReservedPlacesA[v], allReservedPlacesB[v]+1)
     for n in range(theReservedPlace[0], theReservedPlace[1]+1):
       if n in allReservedPlacesD:
