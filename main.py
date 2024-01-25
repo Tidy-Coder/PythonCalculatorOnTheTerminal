@@ -77,7 +77,7 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
     for z in toCheckWordsB:
       localistaionContent = 0
       for i in contentToCheck:
-        if z[0] == i:
+        if z[0] == i and len(z) <= len(contentToCheck[localistaionContent:]):
           if contentToCheck[localistaionContent:len(toCheckWords)+1] == z and CheckIfNoReservedPlaceHere((localistaionContent, len(toCheckWords)+1), reservedplaces):
             reservedplaces += (localistaionContent, len(toCheckWords)+1)
             isOkay += len(toCheckWords)
