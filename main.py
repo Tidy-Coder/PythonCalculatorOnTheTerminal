@@ -14,7 +14,7 @@ for h in range(0, 10):
 allValid = stringNumberArray + [".", "*", "-", "+", "/", "modulo"]
 
 # Print the valid characters/numbers/words.
-print("The valid characters/numbers/words is " + ", ".join(["* (for multiplication)", "/ (for division)", "mudulo (no need to traduct you if you are learned python programming, i thing so, else if you d'ont know, modulo is the rest of a division)", "+", "-"] + stringNumberArray + ". (the comma)") + "...")
+print("The valid characters/numbers/words is " + ", ".join(["* (for multiplication)", "/ (for division)", "mudulo (no need to traduct you if you are learned python programming, i thing so, else if you d'ont know, modulo is the rest of a division)", "+", "-"] + stringNumberArray + [". (the comma)"]) + "...")
 
 # Initialize function checkChars for check if a string/array/tuple... contains only characters/words/numbers... of a Array/String/tuple...
 def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None):
