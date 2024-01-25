@@ -74,9 +74,9 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
           repeat += 1
           if repeat > 1:
             iy = []
+    reservedplaces = ()
     for z in toCheckWords:
       localistaionContent = 0
-      reservedplaces = ()
       for i in contentToCheck:
         if z[0] == i:
           if i[localistaionContent:len(toCheckWords)+1] == toCheckWords and CheckIfNoReservedPlaceHere((localistaionContent, len(toCheckWords)+1), reservedplaces):
