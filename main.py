@@ -63,10 +63,7 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
           isOkay += 1
           break
   if toCheckWords != None:
-    if type(toCheckWords) == tuple:
-      toCheckWordsB = list(toCheckWords)
-    else:
-      toCheckWordsB = toCheckWords
+    toCheckWordsB = list(toCheckWords)
     for y in toCheckWordsB:
       repeat = 0
       for iy in toCheckWordsB:
