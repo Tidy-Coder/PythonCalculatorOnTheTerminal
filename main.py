@@ -11,14 +11,27 @@ while h in range(0, 10):
   stringNumberArray += str(h)
 
 # Initialize an array that contains all valid characters/numbers/words.
-allValid = stringNumberArray + ["*", "-", "+", "/", "modulo"]
+allValid = stringNumberArray + [".", "*", "-", "+", "/", "modulo"]
 
 # Print the valid characters/numbers/words.
-print("The valid characters/numbers/words is " + ", ".join(["* (for multiplication)", "/ (for division)", "mudulo (no need to traduct you if you are learned python programming, i thing so, else if you d'ont know, modulo is the rest of a division)", "+", "-"] + StringNumberArray) + "...")
+print("The valid characters/numbers/words is " + ", ".join(["* (for multiplication)", "/ (for division)", "mudulo (no need to traduct you if you are learned python programming, i thing so, else if you d'ont know, modulo is the rest of a division)", "+", "-"] + StringNumberArray + ". (the comma)") + "...")
 
-# Initialize function checkPlease for check if a string/array/tuple... contains only characters/words/numbers... of a Array/String/tuple...
-def checkPlease(contentToCheck, toCheckChars = None, toCheckWords = None):
-  def CheckIfNoReservedPlaceHere(TheReservedPlace, allReservedPlaces):
+# Initialize function checkChars for check if a string/array/tuple... contains only characters/words/numbers... of a Array/String/tuple...
+def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None):
+  def CheckOperationSyntax(theContentToCheck):
+    if theContentToCheck[0] in allValid[-7:]:
+      return False
+    else:
+      theLast = "number"
+    while bk in theContentToCheck[1:]:
+      if theLast == "operator" and bk in allValid[-7:]:
+        return False
+      elif bk in allValid[-7:]:
+        theLast = "operator"
+      elif bk in stringNumberArray:
+        theLast = "number"
+    return True
+  def CheckIfNoReservedPlaceHere(theReservedPlace, allReservedPlaces):
     allReservedPlacesA = []
     allReservedPlacesB = []
     alternateNum = False
@@ -32,7 +45,7 @@ def checkPlease(contentToCheck, toCheckChars = None, toCheckWords = None):
     allReservedPlacesD = []
     while v in range(0, len(allReservedPlacesA)+1):
       allReservedPlacesD += range(allReservedPlacesA[v], allReservedPlacesB[v]+1)
-    while n in range(TheReservedPlace[0], TheReservedPlace[1]+1):
+    while n in range(theReservedPlace[0], theReservedPlace[1]+1):
       if n in allReservedPlacesD:
         return False
     return True
@@ -65,15 +78,19 @@ def checkPlease(contentToCheck, toCheckChars = None, toCheckWords = None):
         if z[0] == i:
           if i[localistaionContent:len(toCheckWords)+1] == toCheckWords and CheckIfNoReservedPlaceHere((localistaionContent, len(toCheckWords)+1), reservedplaces):
             reservedplaces += (localistaionContent, len(toCheckWords)+1)
+            isOkay += len(toCheckWords)
         localistaionContent += 1
   if isOkay == len(contentToCheck):
-    return True
+    if CheckOperationSyntax(contentToCheck):
+      return True
   else:
     return False
-
 # Entrance for operation...
 entrance = input()
 # Check if the operation entrance is valid or not, if not valid, recommence to ask entrance...
-while entrance == "" or checkPlease(entrance, ):
+while entrance == "" or checkCharsAndSyntax(entrance, allValid[:-1], allValid[-1]):
   print("Please enter valid operation...")
   entrance = input()
+
+# After Check, doing the operation with eval function...
+print(entrance + " = " + str(eval(entrance)))
