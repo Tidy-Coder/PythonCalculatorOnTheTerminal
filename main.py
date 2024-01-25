@@ -47,6 +47,8 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
         alternateNum = False
     allReservedPlacesD = []
     for v in range(0, len(allReservedPlacesA)):
+      print(allReservedPlacesD)
+      print(range(allReservedPlacesA[v], allReservedPlacesB[v]+1))
       allReservedPlacesD += range(allReservedPlacesA[v], allReservedPlacesB[v]+1)
     for n in range(theReservedPlace[0], theReservedPlace[1]+1):
       if n in allReservedPlacesD:
