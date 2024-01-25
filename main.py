@@ -45,10 +45,10 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
       else:
         allReservedPlacesB += [m - 1]
         alternateNum = False
+    print(allReservedPlacesA)
+    print(allReservedPlacesB)
     allReservedPlacesD = []
     for v in range(0, len(allReservedPlacesA)):
-      print(allReservedPlacesD)
-      print(range(allReservedPlacesA[v], allReservedPlacesB[v]+1))
       allReservedPlacesD += range(allReservedPlacesA[v], allReservedPlacesB[v]+1)
     for n in range(theReservedPlace[0], theReservedPlace[1]+1):
       if n in allReservedPlacesD:
@@ -81,7 +81,6 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
           if contentToCheck[localistaionContent:len(toCheckWords)+1] == z and CheckIfNoReservedPlaceHere((localistaionContent, len(toCheckWords)+1), reservedplaces):
             reservedplaces += (localistaionContent, len(toCheckWords)+1)
             isOkay += len(toCheckWords)
-            print("haha")
         localistaionContent += 1
   if isOkay == len(contentToCheck):
     if CheckOperationSyntax(contentToCheck):
