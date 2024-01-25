@@ -95,7 +95,7 @@ def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None
 # Entrance for operation...
 entrance = input()
 # Check if the operation entrance is valid or not, if not valid, recommence to ask entrance...
-while entrance.replace(" ", "") == "" or not checkCharsAndSyntax(entrance.replace(" ", ""), allValid[:-1], allValid[-1]):
+while entrance.replace(" ", "") == "" or not checkCharsAndSyntax(entrance.replace(" ", ""), allValid[:-1], [allValid[-1]]):
   print("Please enter valid operation...")
   entrance = input()
 
