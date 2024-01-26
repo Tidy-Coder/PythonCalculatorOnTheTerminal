@@ -64,6 +64,7 @@ def checkCharsAndSyntax(theEntrance, validChars, validWords):
     if checkOperationSyntax(theEntrance):
       print("The syntax of your operation is valid...")
       return True
+    return False
   print("The syntax of the operation it's not valid, and the entrance contains other only valid chars...")
   return False
 # Entrance for operation...
