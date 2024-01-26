@@ -22,15 +22,15 @@ print("The valid characters/numbers/words is " + ", ".join(["* (for multiplicati
 def checkOperationSyntax(theEntranceH):
   theEntranceD = theEntranceH.replace("modulo", "%")
   tidyArrayOperators = ["%", "*", "/", "+", "-"]
-  if theEntranceH[0] in tidyArrayOperators:
+  if theEntranceD[0] in tidyArrayOperators:
     print("An operation don't start by operator...")
     return False
-  elif theEntranceH[-1] in tidyArrayOperators:
+  elif theEntranceD[-1] in tidyArrayOperators:
     print("An operation don't finish by operator...")
     return False
   else:
     theFirstChar = "number"
-  for m in theEntranceH:
+  for m in theEntranceD:
     if theFirstChar == "operator" and m in tidyArrayOperators:
       print("An operation don't contains multiple operators in the same place...")
       return False
