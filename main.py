@@ -88,17 +88,21 @@ def checkCharsAndSyntax(theEntrance, validChars, validWords):
     return False
   print("The syntax of the operation it's not valid, and the entrance contains other only valid chars...")
   return False
-# Entrance for operation...
-entrance = input()
-# Check if the operation entrance is valid or not, if not valid, recommence to ask entrance...
-while entrance.replace(" ", "") == "" or not checkCharsAndSyntax(entrance.replace(" ", ""), allValid[:-1], [allValid[-1]]):
-  print("Please enter valid operation...")
-  ancientEntrance = entrance
-  print("if you want to add chars to ancientEntrance, enter \"Entrance\" in the terminal, and enter the chars you want to add in left or right or left and right \"Entrance\"...")
+while True:
+  # Entrance for operation...
+  print("Enter \"exit\" in the terminal to quit the program...")
   entrance = input()
-  if "Entrance" in entrance or "entrance" in entrance:
-    entrance = entrance.replace("Entrance", ancientEntrance).replace("entrance", ancientEntrance)
-
-# After Check, doing the operation with eval function...
-print(entrance + " = " + str(eval(entrance.replace("modulo", "%").replace(" ", ""))))
-
+  if entrance == "exit":
+    break
+  
+  # Check if the operation entrance is valid or not, if not valid, recommence to ask entrance...
+  while entrance.replace(" ", "") == "" or not checkCharsAndSyntax(entrance.replace(" ", ""), allValid[:-1], [allValid[-1]]):
+    print("Please enter valid operation...")
+    ancientEntrance = entrance
+    print("if you want to add chars to ancientEntrance, enter \"Entrance\" in the terminal, and enter the chars you want to add in left or right or left and right \"Entrance\"...")
+    entrance = input()
+    if "Entrance" in entrance or "entrance" in entrance:
+      entrance = entrance.replace("Entrance", ancientEntrance).replace("entrance", ancientEntrance)
+  
+  # After Check, doing the operation with eval function...
+  print(entrance + " = " + str(eval(entrance.replace("modulo", "%").replace(" ", ""))))
