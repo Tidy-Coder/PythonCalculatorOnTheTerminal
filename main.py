@@ -19,9 +19,25 @@ allValid = stringNumberArray + [".", "*", "-", "+", "/", "modulo"]
 # Print the valid characters/numbers/words.
 print("The valid characters/numbers/words is " + ", ".join(["* (for multiplication)", "/ (for division)", "mudulo (no need to traduct you if you are learned python programming, i thing so, else if you don't know, modulo is the rest of a division)", "+", "-"] + stringNumberArray + [". (the comma)"]) + "...")
 
-def checkOperationSyntax(theEntranceZ):
-  return False
-
+def checkOperationSyntax(theEntranceH):
+  theEntranceD = theEntranceH.replace("modulo", "%")
+  tidyArrayOperators = ["%", "*", "/", "+", "-"]
+  if theEntranceH[0] in tidyArrayOperators:
+    print("An operation don't start by operator...")
+    return False
+  elif theEntranceH[-1] in tidyArrayOperators:
+    print("An operation don't finish by operator...")
+    return False
+  else:
+    theFirstChar = "number"
+  for m in theEntranceH:
+    if theFirstChar == "operator" and m in tidyArrayOperators:
+      print("An operation don't contains multiple operators in the same place...")
+      return False
+    elif m in tidyArrayOperators:
+      theFirstChar = "operator"
+    else:
+      theFirstChar = "number"
 def tidyOneIn(tidyArrayA, tidyArrayB):
   print("TidyOne")
   if tidyArrayA != [] or len(tidyArrayA) == 1:
@@ -57,7 +73,6 @@ def checkChars(theEntranceZ, validCharsZ, validWordsZ):
         reservedPlaces += [localisationLetter]
         tidyIsOkay += 1
     localisationLetter += 1
-  print(tidyIsOkay, "et", len(theEntranceZ))
   if tidyIsOkay == len(theEntranceZ):
     return True
   else:
