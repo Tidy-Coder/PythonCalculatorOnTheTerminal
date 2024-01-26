@@ -38,6 +38,7 @@ def checkOperationSyntax(theEntranceH):
       theFirstChar = "operator"
     else:
       theFirstChar = "number"
+  return True
 def tidyOneIn(tidyArrayA, tidyArrayB):
   print("TidyOne")
   if tidyArrayA != [] or len(tidyArrayA) == 1:
