@@ -57,7 +57,7 @@ def checkChars(theEntranceZ, validCharsZ, validWordsZ):
         reservedPlaces += [localisationLetter]
         tidyIsOkay += 1
     localisationLetter += 1
-  print(len(reservedPlaces), "et", len(theEntranceZ))
+  print(tidyIsOkay, "et", len(theEntranceZ))
   if tidyIsOkay == len(theEntranceZ):
     return True
   else:
