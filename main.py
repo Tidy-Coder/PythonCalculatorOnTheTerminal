@@ -37,16 +37,17 @@ def tidyOneIn(tidyArrayA, tidyArrayB):
   elif tidyArrayA == []:
     return True
 def checkChars(theEntranceZ, validCharsZ, validWordsZ):
+  tidyIsOkay = 0
   localisationLetter = 0
   reservedPlaces = []
   for i in theEntranceZ:
     localisationWord = 0
     for b in validWordsZ:
       if len(b) <= len(theEntranceZ[localisationLetter:]):
-        print("OKOKOKOK")
         if theEntranceZ[localisationLetter:localisationLetter+len(b)] == b and tidyOneIn(reservedPlaces, range(localisationLetter, localisationLetter+len(b))):
-          print("OKOKOKOK2")
-          reservedPlaces += [range(localisationLetter, localisationLetter+len(b)+1)]
+          reservedPlaces += [range(localisationLetter, localisationLetter+len(b))]
+          tidyIsOkay += len(b)
+          localisationLetter += len(b) - 1
       localisationWord += 1
     localisationLetter += 1
   localisationLetter = 0
@@ -54,9 +55,10 @@ def checkChars(theEntranceZ, validCharsZ, validWordsZ):
     for z in validCharsZ:
       if z == ib and localisationLetter not in reservedPlaces:
         reservedPlaces += [localisationLetter]
+        tidyIsOkay += 1
     localisationLetter += 1
   print(len(reservedPlaces), "et", len(theEntranceZ))
-  if len(reservedPlaces) == len(theEntranceZ):
+  if tidyIsOkay == len(theEntranceZ):
     return True
   else:
     return False
