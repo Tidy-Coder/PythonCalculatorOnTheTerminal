@@ -19,110 +19,53 @@ allValid = stringNumberArray + [".", "*", "-", "+", "/", "modulo"]
 # Print the valid characters/numbers/words.
 print("The valid characters/numbers/words is " + ", ".join(["* (for multiplication)", "/ (for division)", "mudulo (no need to traduct you if you are learned python programming, i thing so, else if you don't know, modulo is the rest of a division)", "+", "-"] + stringNumberArray + [". (the comma)"]) + "...")
 
-# Initialize function checkChars for check if a string/array/tuple... contains only characters/words/numbers... of a Array/String/tuple...
-def checkCharsAndSyntax(contentToCheck, toCheckChars = None, toCheckWords = None):
-  def StartBy(wordOrLetter, theContentToCheckZ):
-    if len(wordOrLetter) == 1:
-      if theContentToCheckZ[0] == wordOrLetter:
-        return True
-    else:
-      if len(wordOrLetter) <= len(theContentToCheckZ):
-        if theContentToCheckZ[0:len(wordOrLetter)+1] == wordOrLetter:
-          return True
-      else:
-        return False
-  def EachStartBy(theArrayZ, theContentToCheckZD):
-    for ZD in theArrayZ:
-      if StartBy(ZD, theContentToCheckZD):
-        return True
-    return False
-  def CheckOperationSyntax(theContentToCheck):
-    if EachStartBy(allValid[-7:], theContentToCheck):
-      return False
-    else:
-      theLast = "number"
-    for elementsZI in allValid[-7:]:
-      if StartBy(elementsZI, theContentToCheck):
-        theContentToCheckB = theContentToCheck[len(elementsZI)-1:]
-        break
-    localisationLetterZT = 0
-    while localisationLetterZT < len(theContentToCheckB):
-      if theLast == "operator" and EachStartBy(allValid[-7:], theContentToCheckB[localisationLetterZT:]):
-        return False
-      elif EachStartBy(allValid[-7:], theContentToCheckB[localisationLetterZT:]):
-        for elementsTB in allValid[-7:]:
-          if StartBy(elementsTB, theContentToCheckB[localisationLetterZT:]):
-            localisationLetterZT += len(elementsTB)-1
-            break
-        theLast = "operator"
-      elif theContentToCheckB[localisationLetterZT] in stringNumberArray:
-        theLast = "number"
-      localisationLetterZT += 1
-    return True
-  def CheckIfNoReservedPlaceHere(theReservedPlace, allReservedPlaces):
-    print("all reserved places: ", allReservedPlaces)
-    if allReservedPlaces == []:
-      return True
-    else:
-      allReservedPlacesA = []
-      allReservedPlacesB = []
-      alternateNum = False
-      for m in allReservedPlaces:
-        if alternateNum == False:
-          allReservedPlacesA += [m]
-          alternateNum == True
-        else:
-          allReservedPlacesB += [m - 1]
-          alternateNum = False
-      print(allReservedPlacesA)
-      print(allReservedPlacesB)
-      allReservedPlacesD = []
-      for v in range(0, len(allReservedPlacesA)):
-        allReservedPlacesD += range(allReservedPlacesA[v], allReservedPlacesB[v]+1)
-      for n in range(theReservedPlace[0], theReservedPlace[1]+1):
-        if n in allReservedPlacesD:
+def checkOperationSyntax(theEntranceZ):
+  return False
+
+def tidyOneIn(tidyArrayA, tidyArrayB):
+  if tidyArrayA != [] or len(tidyArrayA) == 1:
+    for e in tidyArrayA:
+      for eb in tidyArrayB:
+        if e == eb:
           return False
-      return True
-  if toCheckChars == None and toCheckWords == None:
-    return None
+  elif len(tidyArrayA) == 1:
+    for ed in tidyArrayB:
+      if ed == tidyArrayA[0]:
+        return False
+    return True
+  elif tidyArrayA == []:
+    return True
+def checkChars(theEntranceZ, validCharsZ, validWordsZ):
+  localisationLetter = 0
+  reservedPlaces = []
+  for i in theEntranceZ:
+    localisationWord = 0
+    for b in validWordsZ:
+      if len(b) <= len(theEntranceZ[localisationLetter:]):
+        if theEntranceZ[localisationLetter:localisationLetter+len(b)] == b and tidyOneIn(reservedPlaces, [range(localisationLetter, localisationLetter+len(b)+1)]):
+          reservedPlaces += [range(localisationLetter, localisationLetter+len(b)+1)]
+      localisationWord += 1
+    localisationLetter += 1
+  localisationLetter = 0
+  for ib in theEntranceZ:
+    for z in validCharsZ:
+      if z == ib and localisationLetter not in reservedPlaces:
+        reservedPlaces += localisationLetter
+  localisationLetter += 1
+  if len(localisationLetter) == len(theEntranceZ):
+    return True
   else:
-    isOkay = 0
-  if toCheckChars != None:
-    for p in contentToCheck:
-      for d in toCheckChars:
-        if p == d:
-          isOkay += 1
-          break
-  if toCheckWords != None:
-    toCheckWordsB = list(toCheckWords)
-    for y in toCheckWordsB:
-      repeat = 0
-      for iy in toCheckWordsB:
-        if iy == y:
-          repeat += 1
-          if repeat > 1:
-            iy = []
-    reservedplaces = []
-    for z in toCheckWordsB:
-      print("toCheckWordsB:", toCheckWordsB)
-      localistaionContent = 0
-      for i in contentToCheck:
-        if z[0] == i and len(z) <= len(contentToCheck[localistaionContent:]):
-          if contentToCheck[localistaionContent:localistaionContent+len(z)] == z and CheckIfNoReservedPlaceHere((localistaionContent, localistaionContent+len(z)+1), reservedplaces):
-            reservedplaces += [(localistaionContent, localistaionContent+len(z)+1)]
-            isOkay += len(z)
-        localistaionContent += 1
-  if isOkay == len(contentToCheck):
-    print("haha1")
-    print(CheckOperationSyntax(contentToCheck))
-    if CheckOperationSyntax(contentToCheck):
-      print("haha2")
-      return True
-    else:
-      return False
-  else:
-    print("haha3")
     return False
+
+# Initialize function checkChars for check if a string/array/tuple... contains only characters/words/numbers... of a Array/String/tuple...
+def checkCharsAndSyntax(theEntrance, validChars, validWords):
+  if checkChars(theEntrance, validChars, validWords):
+    print("You are enter valids chars/words/numbers...")
+    if checkOperationSyntax(theEntrance):
+      print("The syntax of your operation is valid...")
+      return True
+  print("The syntax of the operation it's not valid, and the entrance contains other only valid chars...")
+  return False
 # Entrance for operation...
 entrance = input()
 # Check if the operation entrance is valid or not, if not valid, recommence to ask entrance...
