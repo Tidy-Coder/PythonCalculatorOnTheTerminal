@@ -52,7 +52,7 @@ def checkChars(theEntranceZ, validCharsZ, validWordsZ):
       if z == ib and localisationLetter not in reservedPlaces:
         reservedPlaces += [localisationLetter]
   localisationLetter += 1
-  if len(localisationLetter) == len(theEntranceZ):
+  if len(reservedPlaces) == len(theEntranceZ):
     return True
   else:
     return False
