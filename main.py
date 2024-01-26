@@ -23,6 +23,7 @@ def checkOperationSyntax(theEntranceZ):
   return False
 
 def tidyOneIn(tidyArrayA, tidyArrayB):
+  print("TidyOne")
   if tidyArrayA != [] or len(tidyArrayA) == 1:
     for e in tidyArrayA:
       for eb in tidyArrayB:
