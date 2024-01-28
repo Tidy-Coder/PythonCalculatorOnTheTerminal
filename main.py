@@ -3,7 +3,7 @@
 # Thank you for download or utilisation in program or watch...
 print("Thank you for download or utilisation in program or watch...")
 
-print("Program made by TidyCodeur, if you want to know TidyCodeur's projects, search on github TidyCodeur...")
+print("Program made by TidyCoder, if you want to know TidyCodeur's projects, search on github TidyCoder...")
 
 # Inform to program start
 print("Program start...")
