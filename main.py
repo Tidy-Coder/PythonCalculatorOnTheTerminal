@@ -58,7 +58,7 @@ def checkChars(theEntranceZ, validCharsZ, validWordsZ):
   reservedPlaces = []
   for i in theEntranceZ:
     localisationWord = 0
-    for b in validWordsZ:
+    for b in sorted(validWordsZ, key=len):
       if len(b) <= len(theEntranceZ[localisationLetter:]):
         if theEntranceZ[localisationLetter:localisationLetter+len(b)] == b and tidyOneIn(reservedPlaces, range(localisationLetter, localisationLetter+len(b))):
           reservedPlaces += [range(localisationLetter, localisationLetter+len(b))]
